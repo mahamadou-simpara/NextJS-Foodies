@@ -1,9 +1,14 @@
 import Link from 'next/link';
 import classes from './page.module.css'
 import MealsGrid from '@/components/meals/meal-grid/meal-grid';
+import { getMeals } from '@/lib/meals';
 
 
-function MealsPage () {
+async function MealsPage () {
+
+    const meals = await getMeals();
+
+
     return <>
         <header className={classes.header}>
             <h1>Delicious meals, creeated 
@@ -12,7 +17,7 @@ function MealsPage () {
             <p>Choose your favorite recipe and cook it yoursefl, It is easy and fun!</p>
             <p className={classes.cta}><Link href="/meals/share">Share your favorite recipe</Link></p>
         </header>
-        <main className={classes.main}><MealsGrid meals={[]} /></main>
+        <main className={classes.main}><MealsGrid meals={meals} /></main>
     </>
 }
 
