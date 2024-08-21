@@ -8,7 +8,7 @@ function MealIndex({ params }) {
 
   if(!meal){
     notFound();
-  }
+  };
 
   meal.instructions = meal.instructions.replace(/\n/g, '<br />')
 
